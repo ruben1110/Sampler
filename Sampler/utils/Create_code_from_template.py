@@ -31,17 +31,17 @@ with open(MACRO_ARCHIVO_PLANTILLA, 'r') as plantilla:
 
 # Reemplazar valores en la plantilla
 contenido_plantilla = re.sub(
-    r'#define OMEGA_MIN\s+\d+',
-    f'#define OMEGA_MIN {OMEGA_MIN}',
+    r'#define MIN_OMEGA_VALUE MIN',
+    f'#define MIN_OMEGA_VALUE {OMEGA_MIN}',
     contenido_plantilla
 )
 contenido_plantilla = re.sub(
-    r'#define OMEGA_MAX\s+\d+',
-    f'#define OMEGA_MAX {OMEGA_MAX}',
+    r'#define MAX_OMEGA_VALUE MAX',
+    f'#define MAX_OMEGA_VALUE {OMEGA_MAX}',
     contenido_plantilla
 )
 contenido_plantilla = re.sub(
-    r'#define OMEGA_INCREMENT\s+\d+',
+    r'#define OMEGA_INCREMENT INC',
     f'#define OMEGA_INCREMENT {OMEGA_INCREMENT}',
     contenido_plantilla
 )
