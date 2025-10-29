@@ -9,9 +9,9 @@ using namespace std;
 
 
 // Configuration parameters
-#define MIN_OMEGA_VALUE 1
-#define MAX_OMEGA_VALUE 100
-#define OMEGA_INCREMENT 1
+#define MIN_OMEGA_VALUE MIN
+#define MAX_OMEGA_VALUE MAX
+#define OMEGA_INCREMENT INC
 
 // Constants
 const char* COM_PORT = "COM3";
