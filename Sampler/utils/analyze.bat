@@ -1,3 +1,6 @@
 @echo off
-.\myvenv\Scripts\activate\python analyze.bat
+cd ..
+.\Sampler_venv\Scripts\activate
+cd ..\..\utils
+python analyze.py
 pause

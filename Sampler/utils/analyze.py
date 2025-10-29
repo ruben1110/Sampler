@@ -41,7 +41,7 @@ class Execute_analysis_and_plot_class():
             
             def execute_script():
                 try:
-                    self.eng.run('matlab_plot_and_analyze_script.m', nargout=0)
+                    self.eng.run('../samples/matlab_plot_and_analyze_script.m', nargout=0)
                     print("✅ Script gramatlab_plot_and_analyze_scriptficar.m ejecutado exitosamente")
                 except Exception as e:
                     print(f"❌ Error ejecutando matlab_plot_and_analyze_script.m: {e}")
@@ -54,11 +54,11 @@ class Execute_analysis_and_plot_class():
         except Exception as e:
             print(f"❌ Error al intentar ejecutar graficar.m: {e}")
     
-    def main():
-        print("=" * 60)
-        print("Executing analysis and plotting..")
-        print("=" * 60)
-        analyzer = Execute_analysis_and_plot_class()
+def main():
+    print("=" * 60)
+    print("Executing analysis and plotting..")
+    print("=" * 60)
+    analyzer = Execute_analysis_and_plot_class()
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()

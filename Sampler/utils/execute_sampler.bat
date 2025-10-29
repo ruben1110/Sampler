@@ -10,10 +10,10 @@ set "folder_graficas_fig=..\graficas\figs\"
 set  "fig_ext=.fig"
 
 set "resources_folder=..\resources\"
-set "matlab_plot_and_analyze_script=analyze_and_plot.m"
 set "sampler_ejecutable=sampler.exe"
-set "sampler_code=sampler_code.cpp"
 set "exe_extension=.exe"
+set "sampler_code=sampler_code.cpp"
+set "matlab_plot_and_analyze_script=matlab_plot_and_analyze_script.m"
 set "matlab_extension=.m"
 
 :: BORRA TODOS LOS ARCHIVOS DE TEXTO CON MUESTREOS
