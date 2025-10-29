@@ -87,7 +87,7 @@ function graficar()
                                phi1, phi2, delta_phi, phase, magnitud];
             
             %% GENERAR GRÁFICA INDIVIDUAL
-            fig = figure('Visible', 'off', 'Position', [100, 100, 1000, 600]);
+            fig = figure('Visible', 'on', 'Position', [100, 100, 1000, 600]);
             
             % Graficar entrada y salida
             yyaxis left;
