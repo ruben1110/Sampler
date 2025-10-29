@@ -10,6 +10,7 @@ set "folder_graficas_fig=..\graficas\figs\"
 set  "fig_ext=.fig"
 
 set "resources_folder=..\resources\"
+set "matlab_plot_and_analyze_script=analyze_and_plot.m"
 set "sampler_ejecutable=sampler.exe"
 set "sampler_code=sampler_code_template.cpp"
 set "exe_extension=.exe"
@@ -53,6 +54,7 @@ if not exist %sampler_ejecutable% (
     goto :wait
 )
 copy %sampler_ejecutable% %samples_folder%
+copy %matlab_plot_and_analyze_script% %samples_folder%
 cd %samples_folder%
 start "" %sampler_ejecutable%
 exit
