@@ -23,6 +23,7 @@ with open(MACRO_ARCHIVO_FUENTE, 'r') as archivo:
     OMEGA_MIN = int(re.search(r'#define OMEGA_MIN\s+(\d+)', bloque.group(1)).group(1))
     OMEGA_MAX = int(re.search(r'#define OMEGA_MAX\s+(\d+)', bloque.group(1)).group(1))
     OMEGA_INCREMENT = int(re.search(r'#define OMEGA_INCREMENT\s+(\d+)', bloque.group(1)).group(1))
+    print(f" OMEGA_MIN = {OMEGA_MIN}\n OMEGA_MAX = {OMEGA_MAX}\n OMEGA_INCREMENT = {OMEGA_INCREMENT}\n ")
 
 # 2. Procesar plantilla
 with open(MACRO_ARCHIVO_PLANTILLA, 'r') as plantilla:
