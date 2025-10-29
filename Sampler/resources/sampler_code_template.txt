@@ -145,7 +145,7 @@ void processDataCollection(HANDLE serialHandle)
             cerr << "Error: Unable to create file " << filename << endl;
             continue;
         }
-        cout << "\n Receiving samples for oemga = " << omegaValue << ", and collecting data to " << filename << endl;
+        cout << "\n Receiving samples for omega = " << omegaValue << ", and collecting data to " << filename << endl;
         
         // Collect data until end character is received
         collectDataToFile(serialHandle, dataFile);
