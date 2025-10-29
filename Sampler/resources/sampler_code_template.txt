@@ -25,6 +25,7 @@ bool configureSerialPort(HANDLE serialHandle);
 bool sendValueToSerial(HANDLE serialHandle, float value);
 void collectDataToFile(HANDLE serialHandle, FILE* dataFile);
 void processDataCollection(HANDLE serialHandle);
+bool ExecuteBatFile(const std::wstring& batPath);
 
 int main() {
     
@@ -43,7 +44,13 @@ int main() {
     processDataCollection(serialHandle);
     
     CloseHandle(serialHandle);
-    cout << "\n\n Sampling has been completed successfully" << endl;
+    cout << "\n\n Sampling has been completed successfully\n\n" << endl;
+
+    if (ExecuteBatFile(L"C:\\Users\\R\\Downloads\\ABCD_SERVOMECANISMOS\\practica4\\Sampler\\utils\\analyze.bat")) {
+        std::wcout << L"Batch file executed successfully.\n";
+    } else {
+        std::wcout << L"Failed to execute batch file.\n";
+    }
     
     return EXIT_SUCCESS;
 }
@@ -149,4 +156,37 @@ void processDataCollection(HANDLE serialHandle)
         // Optional: Small delay between files
         Sleep(500);
     }
+}
+
+bool ExecuteBatFile(const std::wstring& batPath) {
+    STARTUPINFOW si = { sizeof(si) };
+    PROCESS_INFORMATION pi;
+
+    // Command line: cmd.exe /c "your_script.bat"
+    std::wstring command = L"cmd.exe /c \"" + batPath + L"\"";
+
+    if (!CreateProcessW(
+            nullptr,                    // No module name (use command line)
+            &command[0],                // Command line
+            nullptr,                    // Process handle not inheritable
+            nullptr,                    // Thread handle not inheritable
+            FALSE,                      // Set handle inheritance to FALSE
+            0,                          // No creation flags
+            nullptr,                    // Use parent's environment block
+            nullptr,                    // Use parent's starting directory 
+            &si,                        // Pointer to STARTUPINFO structure
+            &pi)                        // Pointer to PROCESS_INFORMATION structure
+    ) {
+        std::wcerr << L"CreateProcess failed: " << GetLastError() << std::endl;
+        return false;
+    }
+
+    // Wait for the process to finish
+    WaitForSingleObject(pi.hProcess, INFINITE);
+
+    // Close process and thread handles
+    CloseHandle(pi.hProcess);
+    CloseHandle(pi.hThread);
+
+    return true;
 }
