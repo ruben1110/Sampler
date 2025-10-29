@@ -50,6 +50,7 @@ class Execute_analysis_and_plot_class():
             thread.daemon = True
             thread.start()
             thread.join()
+            return
             
         except Exception as e:
             print(f"❌ Error al intentar ejecutar graficar.m: {e}")
