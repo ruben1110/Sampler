@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 // Configuration parameters
 #define MIN_OMEGA_VALUE MIN
 #define MAX_OMEGA_VALUE MAX
